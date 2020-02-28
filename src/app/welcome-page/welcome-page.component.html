@@ -1,0 +1,17 @@
+<div class="section-operations-list" *ngIf="userSession && userSession.User" >
+  <h1 class="mb-3 title-page text-center" >Welcome</h1>
+
+  <div class="card" >
+    <div class="card-header">
+      <span>{{ userSession.User.user_name }}</span>
+    </div>
+    <div class="card-body">
+      <ul>
+        <li>Name: {{ userSession.User.user_name }}</li>
+        <li>Box: {{ userSession.box.label }}</li>
+        <li>Mac Adress: {{ userSession.box.mac_address }}</li>
+        <li>Machine: {{ userSession.box.Machines?.label }}</li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+
+<form *ngIf="loginForm" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class="form-group" [ngClass]="{ 'has-error': invalidRfidcode() }">
+    <label for="rf_id" class="control-label">enter your RFID</label>
+    <input type="text" formControlName="rf_id" class="form-control" id="rf_id" name="rf_id" placeholder="#####">
+    <p *ngIf="invalidRfidcode()" id="rf_id_error" class="help-block">Invalid rf_id.</p>
+  </div>
+
+  <div class="form-group" [ngClass]="{ 'has-error': invalidMacAdress() }">
+    <label for="box_mac_add" class="control-label">enter your Mac adress</label>
+    <input type="text" formControlName="box_mac_add" class="form-control" id="box_mac_add" name="box_mac_add" placeholder="#####">
+    <p *ngIf="invalidMacAdress()" id="box_mac_add_error" class="help-block">Invalid rf_id.</p>
+  </div>
+
+  <div class="form-group has-error">
+    <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Register</button>
+  </div>
+
+</form>

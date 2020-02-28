@@ -1,0 +1,38 @@
+<div class="section-operations-list">
+  <h1 class="mb-3 title-page text-center">List operation</h1>
+
+  <table class="table table-bordered" mdbTable>
+    <thead>
+    <tr class="text-center">
+      <th>ID</th>
+      <th>Bundle code</th>
+      <th>Operation code</th>
+      <th>Time</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let operation of operations">
+      <td>{{operation.operation_id}}</td>
+      <td>{{operation.bundle_id}}</td>
+      <td>{{operation.label}}</td>
+      <td>{{operation.time}}</td>
+      <td class="text-center ">
+        <button *ngIf="operation.CarteOperations.finished ==='N'"
+                [routerLink]="['/start-operationSession', operation.CarteOperations.carte_operation_id]"
+                class="  btn btn-success btn-sm mr-md-3" type="button">Start Operation
+        </button>
+        <p *ngIf="operation.CarteOperations.finished ==='Y'" class="alert-danger"> Finished</p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!--<div class="row text-center" >
+  <button class="col-4 btn-group " [routerLink]="['/startOperationsession']" type="button" mdbBtn color="danger" >Start Operation</button>
+  <button  class="col-4"[routerLink]="['']" type="button" mdbBtn color="danger" >Finish Operation</button>
+</div>
+-->
+

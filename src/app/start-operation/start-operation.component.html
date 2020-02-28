@@ -1,0 +1,41 @@
+<div *ngIf="CarteOperationSession" class="section-start-operation">
+  <h1 *ngIf="CarteOperationSession" class="text-center m-5">Start Operation Prgress</h1>
+  <h2>You are working in Carte Operation  {{CarteOperationSession.carte_operation_session_id}}</h2>
+  <div *ngIf="CarteOperationSession?.CarteOperations">
+    <h2>Quantity: {{CarteOperationSession?.CarteOperations?.quantity}}</h2>
+    <h2>Your work need to finish after: {{operationTimeTotal}} seconds</h2>
+    <h2 *ngIf="operationTimeTotal">Your work need to finish after: {{formatToSecondTimer(operationTimeTotal)}}</h2>
+  </div>
+
+  <div *ngIf="progressTimePourcent">
+    <h3 class="text-center" ><span>{{ timerFormatted}}</span></h3>
+    <progress-bar [color]=" (progressTimePourcent > 100) ?  'red' : '#488aff'" [progress]="(progressTimePourcent > 100) ? 100 : progressTimePourcent" ></progress-bar>
+  </div>
+
+  <div *ngIf="!showInput" class="m-5 text-center">
+    <button (click)="finishOperation()" class=" btn btn-danger btn-sm" color="danger" mdbBtn type="button">
+      <span>Finish Operation</span>
+    </button>
+  </div>
+
+  <div *ngIf="showInput" class="m-5 text-center">
+    <form [formGroup]="startOperationForm">
+      <div class="input-group mb-3">
+        <input formControlName="quantity">
+        <div class="input-group-append text-center">
+          <button [disabled]="!startOperationForm.valid" (click)="sendFinishOperation()" class="btn btn-outline-secondary" color="danger"
+                  id="quantity" mdbBtn placeholder="Put you quantity done" type="submit" type="button">
+            <span>Send</span>
+          </button>
+        </div>
+        <div class="input-group-append">
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div *ngIf="!CarteOperationSession">
+    <h1 class="text-center"> there is no operation</h1>
+  </div>
+</div>
+
