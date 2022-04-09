@@ -26,7 +26,7 @@
     "@nguniversal/express-engine": "^9.0.0",
     "angular-progress-bar": "^1.0.11",
     "bootstrap": "^4.4.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "momentjs": "^2.0.0",
     "ngx-cookie": "^4.1.2",
     "ngx-loading-bar": "0.0.9",
